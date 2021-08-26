@@ -3,16 +3,36 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  // styleUrls: ['./app.component.css']
+  styles: [
+    `
+      .blueColor {
+        color: white;
+      }
+    `,
+  ],
 })
 export class AppComponent {
-  userName = "";
+  onClick = false;
+  buttonClicking = 'Secret Password = hello';
+  variable = false;
+  clicks = [];
+  timesClicked = 0;
 
-  onUpdateName(event: Event) {
-    this.userName= (<HTMLInputElement>event.target).value;
+  constructor() {
+    setTimeout(() => {
+      this.onClick = true;
+    }, 2000);
   }
 
-  onClicking() {
-    this.userName = "";
+  onClickButton() {
+    this.variable = true;
+    this.timesClicked += 1;
+    this.clicks.push(this.buttonClicking);
+    this.buttonClicking = 'Secret Password = tuna';
+  }
+
+  getColor() {
+    return this.timesClicked >= 5 ? 'blue' : 'red';
   }
 }
