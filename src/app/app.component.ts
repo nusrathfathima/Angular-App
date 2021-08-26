@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  // styleUrls: ['./app.component.css']
   styles: [
     `
       .blueColor {
@@ -13,22 +12,17 @@ import { Component } from '@angular/core';
   ],
 })
 export class AppComponent {
-  onClick = false;
   buttonClicking = 'Secret Password = hello';
   variable = false;
   clicks = [];
   timesClicked = 0;
 
   constructor() {
-    setTimeout(() => {
-      this.onClick = true;
-    }, 2000);
   }
 
   onClickButton() {
     this.variable = true;
-    this.timesClicked += 1;
-    this.clicks.push(this.buttonClicking);
+    this.timesClicked = this.clicks.push(this.clicks.length + 1);
     this.buttonClicking = 'Secret Password = tuna';
   }
 
