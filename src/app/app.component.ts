@@ -17,16 +17,11 @@ export class AppComponent {
   clicks = [];
   timesClicked = 0;
 
-  constructor() {
-  }
+  constructor() {}
 
   onClickButton() {
-    this.variable = true;
+    this.variable = !this.variable;
     this.timesClicked = this.clicks.push(this.clicks.length + 1);
     this.buttonClicking = 'Secret Password = tuna';
-  }
-
-  getColor() {
-    return this.timesClicked >= 5 ? 'blue' : 'red';
   }
 }

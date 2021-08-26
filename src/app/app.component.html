@@ -29,10 +29,10 @@
 <button class="btn btn-primary" (click)="onClickButton()">
   Display Details
 </button>
-<p *ngIf="variable">Button was clicked with {{ buttonClicking }}</p>
+<p *ngIf="variable">Secret password = tuna</p>
 <p
-  [ngStyle]="{ backgroundColor: getColor() }"
-  [ngClass]="{ blueColor: timesClicked >= 5 }"
+  [ngStyle]="{ backgroundColor: clk >= 5 ? 'blue' : 'red' }"
+  [ngClass]="{ blueColor: clk >= 5 }"
   *ngFor="let clk of clicks"
 >
   {{ clk }}
